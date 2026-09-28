@@ -2,85 +2,85 @@
 <html
         xmlns:p="primefaces"
         xmlns:f="jakarta.faces.core"
-        xmlns:h="http://xmlns.jcp.org/jsf/html"
-        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-        xmlns="http://www.w3.org/1999/xhtml">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns="http://www.w3.org/1999/xhtml">
 <h:head>
-  <meta charset="UTF-8"/>
-  <title>Student Registration</title>
+    <meta charset="UTF-8"/>
+    <title>Student Registration</title>
 </h:head>
 <h:body>
-  <h:form>
-    <p:messages showDetail="true" />
+    <p:messages id="messages" showDetail="true" />
+<h:form>
 
     <p:panel header="Student Registration">
 
-      <p:outputLabel for="fullName" value="Full Name" />
-      <p:inputText id="fullName"
-                   value="#{studentFormBean.studentInfo.fullName}"
-                   required="true"
-                   requiredMessage="Full name is required" />
-      <br /><br />
+        <p:outputLabel for="fullName" value="Full Name" />
+        <p:inputText id="fullName"
+                     value="#{studentFormBean.studentInfo.fullName}"
+                     required="true"
+                     requiredMessage="Full name is required" />
+        <br /><br />
 
-      <p:outputLabel for="program" value="Program" />
-      <p:selectOneMenu id="program"
-                       value="#{studentFormBean.studentInfo.program}"
-                       required="true"
-                       requiredMessage="Program is required">
-        <f:selectItem itemLabel="Select Program"
-                      itemValue=""
-                      noSelectionOption="true" />
-        <f:selectItem itemLabel="DMIT" itemValue="DMIT" />
-        <f:selectItem itemLabel="Softare Development" itemValue="SDEV" />
+        <p:outputLabel for="program" value="Program" />
+        <p:selectOneMenu id="program"
+                         value="#{studentFormBean.studentInfo.program}"
+                         required="true"
+                         requiredMessage="Program is required">
+            <f:selectItem itemLabel="Select Program"
+                            itemValue=""
+                          noSelectionOption="true" />
+            <f:selectItem itemLabel="DMIT" itemValue="DMIT" />
+            <f:selectItem itemLabel="Softare Development" itemValue="SDEV" />
 
-      </p:selectOneMenu>
+        </p:selectOneMenu>
 
-      <br />
-      <br />
+        <br />
+        <br />
 
-      <p:selectBooleanCheckbox id="fullTime"
-                               value="#{studentFormBean.studentInfo.fullTime}" />
-      <p:outputLabel for="fullTime" value="Full Time Student" />
+        <p:selectBooleanCheckbox id="fullTime"
+                                 value="#{studentFormBean.studentInfo.fullTime}" />
+        <p:outputLabel for="fullTime" value="Full Time Student" />
 
-      <br />
-      <br />
+        <br />
+        <br />
 
-      <p:commandButton
-              value="Submit"
-              action="#{studentFormBean.submit()}"
-              process="@form"
-              update="@form" />
+        <p:commandButton
+                value="Submit"
+                action="#{studentFormBean.submit()}"
+                process="@form"
+                update="@form :messages" />
 
 
-      <h:outputText value="Successful submissions: #{studentFormBean.submissionCount}" />
+        <h:outputText value="Successful submissions: #{studentFormBean.submissionCount}" />
     </p:panel>
 
     <p:dataTable id="studentInfosDataTable"
                  value="#{studentListSession.studentInfos}"
                  var="currentStudent">
-      <p:column headerText="Student Name">
-        <h:outputText value="#{currentStudent.fullName}" />
-      </p:column>
+        <p:column headerText="Student Name">
+            <h:outputText value="#{currentStudent.fullName}" />
+        </p:column>
 
-      <p:column headerText="Program">
-        <h:outputText value="#{currentStudent.program}" />
-      </p:column>
+        <p:column headerText="Program">
+            <h:outputText value="#{currentStudent.program}" />
+        </p:column>
 
-      <p:column headerText="Full Time?">
-        <p:selectBooleanCheckbox value="#{currentStudent.fullTime}"
-                                 disabled="true" />
-      </p:column>
-      <p:column headerText="Action">
-        <p:commandButton value="remove"
-                         action="#{studentListSession.removeStudentInfo(currentStudent)}"
-                         process="@this"
-                         update="studentInfosDataTable" />
-      </p:column>
+        <p:column headerText="Full Time?">
+            <p:selectBooleanCheckbox value="#{currentStudent.fullTime}"
+                                     disabled="true" />
+        </p:column>
+        <p:column headerText="Action">
+            <p:commandButton value="remove"
+                             action="#{studentListSession.removeStudentInfo(currentStudent)}"
+                             process="@this"
+                             update="studentInfosDataTable :messages" />
+        </p:column>
 
     </p:dataTable>
 
 
-  </h:form>
+</h:form>
 
 
 </h:body>

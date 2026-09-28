@@ -1,4 +1,4 @@
-package dmit2015.View;
+package dmit2015.view;
 
 import dmit2015.model.StudentInfo;
 import jakarta.faces.application.FacesMessage;

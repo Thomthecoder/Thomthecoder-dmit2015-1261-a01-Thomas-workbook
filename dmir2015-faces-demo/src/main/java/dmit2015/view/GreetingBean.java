@@ -1,11 +1,10 @@
-package dmit2015.View;
+package dmit2015.view;
 
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Named;
 
 @Named
 @RequestScoped
-
 public class GreetingBean {
 
     private String firstName;
@@ -23,7 +22,7 @@ public class GreetingBean {
             return "";
         }
 
-        //return "Welcome" + firstname = "  to DMIT2015";
+        //return "Welcome " + firstName + " to DMIT2015!";
         return String.format("Welcome %s to DMIT2015!", firstName);
     }
 }
