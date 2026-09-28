@@ -32,7 +32,7 @@ Content-Type: application/json
 # Example path after sign-in:
 # multi_tenant_data/Student/{{localId}}
 
-@firebaseBaseUri = https://dmit2015-1261-a01-swunait-default-rtdb.firebaseio.com
+@firebaseBaseUri = https://dmit2015-1261-a01-thomasmaguta-default-rtdb.firebaseio.com
 @domainModelName = Student
 @jsonDataPath = multi_tenant_data/{{domainModelName}}/{{localId}}
 @idValue = 26000925

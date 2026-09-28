@@ -5,7 +5,7 @@
 # Example JSON data path:
 # Student
 
-@firebaseBaseUri = https://dmit2015-1261-a01-swunait-default-rtdb.firebaseio.com
+@firebaseBaseUri = https://dmit2015-1261-a01-thomasmaguta-default-rtdb.firebaseio.com
 @jsonDataPath = Student
 @idValue = 123
 
